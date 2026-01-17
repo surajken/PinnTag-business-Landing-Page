@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PinnTag Business – Empower Local Experiences</title>
+    <!-- Include Tailwind via CDN. If using a build pipeline, this script can be removed in
+         favour of compiled CSS. The CDN version provides the utility classes used below. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--
+      The page uses Tailwind CSS utility classes. It assumes that Tailwind CSS
+      is already included in the project build pipeline. The markup
+      demonstrates a dark‑first design with occasional light sections to
+      create contrast. Replace the image URLs with your own assets when
+      available.
+    -->
+  </head>
+  <body class="bg-gray-950 text-white font-sans antialiased">
+    <!-- Glass-style Navigation Bar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-gray-900/40 border-b border-gray-700/50 text-white"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-6">
+          <a href="#" class="flex items-center gap-2 font-bold text-lg">
+            <!-- Optional: logo icon here -->
+            <span>PinnTag</span>
+          </a>
+          <!-- Primary nav links (collapse on small screens) -->
+          <div class="hidden md:flex items-center gap-6 text-sm">
+            <a href="#" class="hover:text-blue-400">Onboarding</a>
+            <a href="#" class="hover:text-blue-400">Tools</a>
+            <a href="#" class="hover:text-blue-400">Who&nbsp;It’s&nbsp;For</a>
+            <a href="#" class="hover:text-blue-400">Categories</a>
+            <a href="#" class="hover:text-blue-400">Deals</a>
+            <a href="#" class="hover:text-blue-400">Rewards</a>
+            <a href="#" class="hover:text-blue-400">AI</a>
+            <a href="#" class="hover:text-blue-400">Comparison</a>
+            <a href="#" class="hover:text-blue-400">Pricing</a>
+          </div>
+        </div>
+        <!-- Auth buttons / User menu -->
+        <div class="flex items-center gap-4">
+          <div id="auth-buttons" class="flex items-center gap-4">
+            <button
+              id="loginBtn"
+              class="px-4 py-2 text-sm font-semibold rounded-full bg-blue-600 hover:bg-blue-500 transition-colors"
+            >
+              Login
+            </button>
+            <button
+              id="registerBtn"
+              class="px-4 py-2 text-sm font-semibold rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
+            >
+              Register
+            </button>
+          </div>
+          <div id="userMenu" class="relative hidden">
+            <button
+              id="userBtn"
+              class="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <img
+                src="https://i.pravatar.cc/40?u=suraj"
+                alt="User avatar"
+                class="w-8 h-8 rounded-full border border-gray-700"
+              />
+              <span>John Doe</span>
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 8l4 4 4-4" />
+              </svg>
+            </button>
+            <div
+              id="userDropdown"
+              class="hidden absolute right-0 mt-2 w-48 bg-gray-900/80 backdrop-blur-lg border border-gray-700 rounded-lg shadow-lg overflow-hidden"
+            >
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-800"
+                >Dashboard</a
+              >
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-800"
+                >Profile</a
+              >
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-800"
+                >Settings</a
+              >
+              <div class="border-t border-gray-700"></div>
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-800"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Header / Hero Section -->
+    <header class="relative overflow-hidden">
+      <div
+        class="max-w-7xl mx-auto px-6 pt-20 pb-32 md:pb-40 lg:py-44 flex flex-col md:flex-row items-center gap-12"
+      >
+        <!-- Hero text -->
+        <div class="max-w-xl z-10">
+          <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Empower Your Local Business
+          </h1>
+          <p class="text-lg md:text-xl mb-8 text-gray-300 max-w-lg">
+            PinnTag connects small businesses with their communities. Create
+            offers, events and experiences. Let customers discover your brand,
+            engage effortlessly, and grow loyal followers.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors"
+            >
+              Get Started for Free
+            </a>
+            <a
+              href="#"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-gray-600 text-white font-semibold hover:bg-gray-800 transition-colors"
+            >
+              Book a Demo
+            </a>
+          </div>
+        </div>
+        <!-- Floating cards / hero visual -->
+        <div class="hidden md:block relative flex-1">
+          <!-- Card 1 -->
+          <div
+            class="absolute top-0 left-0 transform -rotate-6 shadow-xl bg-gray-900 rounded-xl overflow-hidden border border-gray-800"
+            style="width: 260px; height: 160px"
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2020/11/20/17/15/local-store-5762254_960_720.png"
+              alt="Local store"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-2 left-2 text-sm">
+              <h3 class="font-semibold">Pop‑Up Shop</h3>
+              <p class="text-xs text-gray-300">Retail &amp; Shopping</p>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="absolute top-20 left-32 transform rotate-3 shadow-xl bg-gray-900 rounded-xl overflow-hidden border border-gray-800"
+            style="width: 300px; height: 190px"
+          >
+            <img
+              src="https://img.freepik.com/free-photo/mini-burgers-french-fries-spices-cocktails-side-view_141793-1814.jpg?semt=ais_hybrid&w=740&q=80"
+              alt="Food and drinks"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-2 left-2 text-sm">
+              <h3 class="font-semibold">Food Truck Fiesta</h3>
+              <p class="text-xs text-gray-300">Food &amp; Drink</p>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="absolute top-48 left-0 transform -rotate-6 shadow-xl bg-gray-900 rounded-xl overflow-hidden border border-gray-800"
+            style="width: 280px; height: 180px"
+          >
+            <img
+              src="https://conferencenext.com/blog/wp-content/uploads/2025/03/usa-conference.webp"
+              alt="Workshop"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-2 left-2 text-sm">
+              <h3 class="font-semibold">Craft Workshop</h3>
+              <p class="text-xs text-gray-300">Classes &amp; Workshops</p>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="absolute top-64 left-40 transform rotate-2 shadow-xl bg-gray-900 rounded-xl overflow-hidden border border-gray-800"
+            style="width: 260px; height: 170px"
+          >
+            <img
+              src="https://media.istockphoto.com/id/1391884768/vector/alternative-band-musicians-concert-with-crowd-silhouettes.jpg?s=612x612&w=0&k=20&c=vzy4deVEqBKVAGXuo5H_Bl2h9khJTq_dO2vNl_uFGCQ="
+              alt="Concert"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute bottom-2 left-2 text-sm">
+              <h3 class="font-semibold">Live Concert</h3>
+              <p class="text-xs text-gray-300">Entertainment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quick Onboarding & AI Section -->
+    <section class="py-20 bg-gray-900">
+      <div
+        class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Quick Onboarding &amp; AI Assist
+          </h2>
+          <p class="text-gray-300 mb-6">
+            Get your business live in minutes. PinnTag’s streamlined sign up and
+            AI‑powered assistant take the hassle out of creating offers,
+            descriptions and schedules. Sign up, answer a few questions and let
+            the AI handle the rest.
+          </p>
+          <ul class="space-y-4 text-gray-300">
+            <li class="flex items-start gap-3">
+              <span
+                class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-sm"
+                >1</span
+              >
+              <div>
+                <h3 class="font-semibold">One‑Tap Registration</h3>
+                <p class="text-sm">
+                  Use Google, Apple or phone – no lengthy forms.
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span
+                class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-sm"
+                >2</span
+              >
+              <div>
+                <h3 class="font-semibold">AI Generated Content</h3>
+                <p class="text-sm">
+                  Generate engaging descriptions &amp; offers instantly.
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span
+                class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-sm"
+                >3</span
+              >
+              <div>
+                <h3 class="font-semibold">Automated Verification</h3>
+                <p class="text-sm">
+                  Secure &amp; trustful environment for merchants and users.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <!-- Illustrative image (abstract) -->
+          <!-- Use local decorative illustration generated for onboarding. Place this image
+               file next to the HTML file when deploying (4a3df28e-3311-4c43-b34a-98461f3f6938.png). -->
+          <img
+            src="https://staging-pinntagbucket.s3.us-east-1.amazonaws.com/Screenshot+2026-01-17+at+8.25.09%E2%80%AFPM.png"
+            alt="Onboarding illustration"
+            class="rounded-2xl shadow-2xl border border-gray-800"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Boosting Local SMBs Section -->
+    <section class="py-24 bg-gray-950">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-14"
+      >
+        <!-- Left: text -->
+        <div class="max-w-lg">
+          <h2 class="text-4xl font-bold mb-6">
+            Boosting Local Businesses &amp; Communities
+          </h2>
+          <p class="text-gray-300 mb-6">
+            PinnTag celebrates the heart of every community – its businesses and
+            services of all sizes. From cozy cafés and artisan studios to food
+            trucks, franchises and city programs, our platform elevates your
+            stories across every location. Share experiences, drive footfall and
+            convert one‑time visitors into loyal advocates wherever you operate.
+          </p>
+          <a
+            href="#"
+            class="inline-block px-6 py-3 bg-blue-600 rounded-full hover:bg-blue-500 font-semibold text-white"
+            >Discover How</a
+          >
+        </div>
+        <!-- Right: circular images -->
+        <div class="flex-1 grid grid-cols-2 gap-6">
+          <div
+            class="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border border-gray-800 mx-auto"
+          >
+            <img
+              src="https://i.ytimg.com/vi/P3Ibh5MxSF0/sddefault.jpg"
+              alt="Coffee Shop"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border border-gray-800 mx-auto mt-12"
+          >
+            <img
+              src="https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,f_auto,q_60,w_750/v1/classpop/6791350173140"
+              alt="Handmade"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border border-gray-800 mx-auto mt-8"
+          >
+            <img
+              src="https://cdn.prod.website-files.com/66aa8fe9dc4db68f448a978f/6839835a8ca4e8c141d9856d_homebanner%20(1).webp"
+              alt="Fitness Studio"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border border-gray-800 mx-auto -mt-4"
+          >
+            <img
+              src="https://www.mohifashion.com/cdn/shop/articles/boutique_shop_1.jpg?v=1721996504&width=1100"
+              alt="Boutique"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Tools & Management Section (Enhanced UI, same background) -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900"
+        >
+          All-In-One Business Tools
+        </h2>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Tool Card 1 -->
+          <div
+            class="relative bg-[#141c28] rounded-2xl p-7 shadow-xl border border-white/10 overflow-hidden"
+          >
+            <!-- subtle highlight -->
+            <div
+              class="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl"
+            ></div>
+            <div
+              class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent"
+            ></div>
+
+            <div class="relative">
+              <div class="mb-5 flex items-center gap-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-600/20 ring-1 ring-blue-500/30"
+                >
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-600"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M3 7h18M3 12h18M3 17h18" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="font-semibold text-white text-lg mb-2">
+                Multi-Location
+              </h3>
+
+              <p class="text-sm text-white/60 mb-4 leading-relaxed">
+                Operate multiple locations or mobile units from one dashboard.
+              </p>
+
+              <div class="h-px w-full bg-white/10 mb-4"></div>
+
+              <p class="text-sm text-white/75 leading-relaxed">
+                Set active locations, manage mobile pins, and keep every branch
+                accurate so customers always find you nearby.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tool Card 2 -->
+          <div
+            class="relative bg-[#141c28] rounded-2xl p-7 shadow-xl border border-white/10 overflow-hidden"
+          >
+            <div
+              class="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl"
+            ></div>
+            <div
+              class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent"
+            ></div>
+
+            <div class="relative">
+              <div class="mb-5 flex items-center gap-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-600/20 ring-1 ring-blue-500/30"
+                >
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-600"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="font-semibold text-white text-lg mb-2">
+                Content &amp; Promotion
+              </h3>
+
+              <p class="text-sm text-white/60 mb-4 leading-relaxed">
+                Create offers, events &amp; targeted promotions with ease.
+              </p>
+
+              <div class="h-px w-full bg-white/10 mb-4"></div>
+
+              <p class="text-sm text-white/75 leading-relaxed">
+                Schedule flash deals, rewards, and events—AI helps you write
+                clean captions, CTAs, and tags for hyper-local discovery.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tool Card 3 -->
+          <div
+            class="relative bg-[#141c28] rounded-2xl p-7 shadow-xl border border-white/10 overflow-hidden"
+          >
+            <div
+              class="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl"
+            ></div>
+            <div
+              class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent"
+            ></div>
+
+            <div class="relative">
+              <div class="mb-5 flex items-center gap-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-600/20 ring-1 ring-blue-500/30"
+                >
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-600"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M3 3h18v18H3V3z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="font-semibold text-white text-lg mb-2">
+                Bookings &amp; Payments
+              </h3>
+
+              <p class="text-sm text-white/60 mb-4 leading-relaxed">
+                Accept reservations &amp; secure payments directly in the app.
+              </p>
+
+              <div class="h-px w-full bg-white/10 mb-4"></div>
+
+              <p class="text-sm text-white/75 leading-relaxed">
+                Take bookings, collect payments, and manage cancellations with a
+                simple flow built for offers, events, and services.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tool Card 4 -->
+          <div
+            class="relative bg-[#141c28] rounded-2xl p-7 shadow-xl border border-white/10 overflow-hidden"
+          >
+            <div
+              class="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl"
+            ></div>
+            <div
+              class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent"
+            ></div>
+
+            <div class="relative">
+              <div class="mb-5 flex items-center gap-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 rounded-2xl bg-blue-600/20 ring-1 ring-blue-500/30"
+                >
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-600"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 20l9-5-9-5-9 5 9 5z" />
+                      <path d="M12 12l9-5-9-5-9 5 9 5z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="font-semibold text-white text-lg mb-2">
+                Analytics &amp; Insights
+              </h3>
+
+              <p class="text-sm text-white/60 mb-4 leading-relaxed">
+                Track engagement, redemption &amp; growth with live dashboards.
+              </p>
+
+              <div class="h-px w-full bg-white/10 mb-4"></div>
+
+              <p class="text-sm text-white/75 leading-relaxed">
+                Monitor views, saves, redemptions, and repeat visits—then
+                optimize timing and content using real performance signals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Target Audiences Section -->
+    <section class="py-24 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+          Who It's For
+        </h2>
+        <p class="text-gray-300 max-w-3xl mx-auto text-center mb-12">
+          PinnTag isn’t just for small shops. We empower a wide range of local
+          stakeholders – from independent operators to multi-location brands and
+          even city programs – to connect with their communities.
+        </p>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card -->
+          <div
+            class="relative h-[360px] rounded-2xl overflow-hidden border border-gray-800"
+          >
+            <!-- Full image -->
+            <img
+              src="https://images.unsplash.com/photo-1609234700463-60e479775df0?q=80&w=1374&auto=format&fit=crop"
+              alt="Local businesses"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+
+            <!-- Subtle image overlay -->
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <!-- Black content card -->
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur p-6"
+            >
+              <h3 class="font-semibold mb-2 text-white">Local Businesses</h3>
+              <p class="text-sm text-gray-300">
+                Restaurants, retailers, salons and service providers looking to
+                reach nearby customers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div
+            class="relative h-[360px] rounded-2xl overflow-hidden border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1624954110298-f2718db666fa?q=80&w=764&auto=format&fit=crop"
+              alt="Mobile vendors"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur p-6"
+            >
+              <h3 class="font-semibold mb-2 text-white">Mobile Vendors</h3>
+              <p class="text-sm text-gray-300">
+                Food trucks, pop-ups and farmers markets who want to broadcast
+                their locations and specials.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div
+            class="relative h-[360px] rounded-2xl overflow-hidden border border-gray-800"
+          >
+            <img
+              src="https://plus.unsplash.com/premium_photo-1705317716137-2a2628161907?q=80&w=1374&auto=format&fit=crop"
+              alt="Multi-location brands"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur p-6"
+            >
+              <h3 class="font-semibold mb-2 text-white">
+                Multi-Location Brands
+              </h3>
+              <p class="text-sm text-gray-300">
+                Franchises, regional chains and brands managing promotions
+                across multiple stores.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div
+            class="relative h-[360px] rounded-2xl overflow-hidden border border-gray-800"
+          >
+            <img
+              src="https://media.istockphoto.com/id/1413633369/photo/mobile-jigsaw-puzzle-pieces-business-cooperation-concept-teamwork-and-cooperation-businessmen.jpg?s=2048x2048&w=is&k=20&c=QJCTW4pZP12kxf9RzvRjU1LPjqFCiPaJIMf5YucpCsQ="
+              alt="Enterprise partners"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur p-6"
+            >
+              <h3 class="font-semibold mb-2 text-white">Enterprise Partners</h3>
+              <p class="text-sm text-gray-300">
+                Large organizations and agencies orchestrating events and
+                exclusive programs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div
+            class="relative h-[360px] rounded-2xl overflow-hidden border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1513038630932-13873b1a7f29?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Cities and public venues"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur p-6"
+            >
+              <h3 class="font-semibold mb-2 text-white">
+                Cities &amp; Public Venues
+              </h3>
+              <p class="text-sm text-gray-300">
+                Convention bureaux, parks and municipalities promoting
+                attractions and initiatives.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div
+            class="relative h-[360px] rounded-2xl overflow-hidden border border-gray-800"
+          >
+            <img
+              src="https://plus.unsplash.com/premium_photo-1747816995954-b3ea9b9c8511?q=80&w=1470&auto=format&fit=crop"
+              alt="Agencies and marketplaces"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <div
+              class="absolute bottom-0 left-0 right-0 bg-gray-950/95 backdrop-blur p-6"
+            >
+              <h3 class="font-semibold mb-2 text-white">
+                Agencies &amp; Marketplaces
+              </h3>
+              <p class="text-sm text-gray-300">
+                Third-party marketers and marketplaces seeking a specialized
+                local discovery platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Categories Grid -->
+    <section class="py-24 bg-gray-950">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          Explore Business Categories
+        </h2>
+
+        <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+          <!-- 1. Food & Drink -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://plus.unsplash.com/premium_photo-1676313449501-8ed94e22a65b?q=80&w=1287&auto=format&fit=crop"
+              alt="Food & Drink"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Food &amp; Drink</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Tasty deals from restaurants, bars and food trucks.
+            </p>
+          </div>
+
+          <!-- 2. Entertainment -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1611765083444-a3ce30f1c885?q=80&w=1364&auto=format&fit=crop"
+              alt="Entertainment"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Entertainment</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Live shows, concerts and events happening around you.
+            </p>
+          </div>
+
+          <!-- 3. Classes & Workshops -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1287&auto=format&fit=crop"
+              alt="Classes & Workshops"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Classes &amp; Workshops</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Hands-on sessions, courses and creative workshops.
+            </p>
+          </div>
+
+          <!-- 4. Sports & Outdoor -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://media.istockphoto.com/id/1062855462/photo/group-of-multiracial-young-people-playing-basketball-outdoors.jpg?s=2048x2048&w=is&k=20&c=wo-oG52YU24e2UrqlQVSbgvGviAmu1Yrj-etNxm4kEU="
+              alt="Sports & Outdoor"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Sports &amp; Outdoor</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Hiking, adventures, fitness and recreational activities.
+            </p>
+          </div>
+
+          <!-- 5. Local Attractions -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1610023709598-3881e09811c2?q=80&w=1288&auto=format&fit=crop"
+              alt="Local Attractions"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Local Attractions</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Museums, parks and unique places to visit.
+            </p>
+          </div>
+
+          <!-- 6. Health & Wellness -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1598&auto=format&fit=crop"
+              alt="Health & Wellness"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Health &amp; Wellness</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Spa packages, yoga classes and wellness offers.
+            </p>
+          </div>
+
+          <!-- 7. Retail & Shopping -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1643365944732-2b004f0c37d5?q=80&w=2595&auto=format&fit=crop"
+              alt="Retail & Shopping"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Retail &amp; Shopping</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Unique items from local shops and markets.
+            </p>
+          </div>
+
+          <!-- 8. Places to Stay -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1700639699341-ba1aa58154a3?q=80&w=1364&auto=format&fit=crop"
+              alt="Places to Stay"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Places to Stay</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Hotels, B&amp;Bs and unique local stays.
+            </p>
+          </div>
+
+          <!-- 9. Home & Professional Services -->
+          <div
+            class="flex flex-col items-center bg-gray-900 rounded-2xl p-5 shadow-lg border border-gray-800"
+          >
+            <img
+              src="https://plus.unsplash.com/premium_photo-1664298059861-1560b39fb890?q=80&w=1288&auto=format&fit=crop"
+              alt="Home & Professional Services"
+              class="w-full h-32 object-cover rounded-xl mb-4"
+            />
+            <h3 class="font-semibold mb-2">Home &amp; Professional Services</h3>
+            <p class="text-sm text-gray-400 text-center">
+              Home cleaning, salons, coaching &amp; more.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flash Deals Section -->
+    <section class="py-20 bg-gray-900">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12"
+      >
+        <div class="flex-1">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Flash Deals &amp; Exclusives
+          </h2>
+          <p class="text-gray-300 mb-6">
+            Create urgency and excitement with limited‑time offers. Post flash
+            deals that expire in hours or with limited stock to attract
+            customers exactly when you need them.
+          </p>
+          <ul class="space-y-3 text-gray-300 text-sm">
+            <li>Set countdown timers or item limits</li>
+            <li>In‑app booking &amp; redemption</li>
+            <li>Boost sales during off‑peak hours</li>
+            <li>Send instant notifications to followers</li>
+          </ul>
+        </div>
+        <div class="flex-1 relative">
+          <!-- Use local decorative illustration for flash deals -->
+          <img
+            src="https://images.unsplash.com/photo-1572584642822-6f8de0243c93?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Flash deals illustration"
+            class="rounded-2xl shadow-xl border border-gray-800"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Loyalty & Rewards Section -->
+    <section class="py-20 bg-gray-950">
+      <div
+        class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div class="order-2 md:order-1">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1728897797961-9781e07c6e34?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Loyalty"
+            class="rounded-2xl shadow-2xl border border-gray-800"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Rewards That Build Loyalty
+          </h2>
+          <p class="text-gray-300 mb-6">
+            Encourage repeat visits with digital loyalty programs. Customers
+            collect points automatically and redeem rewards effortlessly.
+            Configure custom perks, birthday specials and referrals – all in one
+            place.
+          </p>
+          <ul class="space-y-3 text-gray-300 text-sm">
+            <li>Digital loyalty cards stored in the app</li>
+            <li>Rewards wallet with points &amp; perks</li>
+            <li>Automated reminders for unused rewards</li>
+            <li>City‑wide challenges &amp; community rewards</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Insights & Personalization Section -->
+    <section class="py-20 bg-gray-900">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12"
+      >
+        <div class="flex-1">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            AI‑Powered Insights &amp; Personalization
+          </h2>
+          <p class="text-gray-300 mb-6">
+            Our AI continually learns from user behavior to recommend offers,
+            optimize pricing and detect fraud. On the merchant side, actionable
+            insights highlight what works best – from when to post your deal to
+            which services are in high demand.
+          </p>
+          <ul class="space-y-3 text-gray-300 text-sm">
+            <li>Personalized recommendations for users</li>
+            <li>Dynamic pricing &amp; offer optimization</li>
+            <li>Fraud detection &amp; trust management</li>
+            <li>Data‑driven performance suggestions</li>
+          </ul>
+        </div>
+        <div class="flex-1 relative">
+          <!-- Use local decorative illustration for AI insights -->
+          <img
+            src="https://staging-pinntagbucket.s3.us-east-1.amazonaws.com/ai+sample.jpg"
+            alt="AI insights illustration"
+            class="rounded-2xl shadow-xl border border-gray-800"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PinnTag vs Social Media Section -->
+    <!-- <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900"
+        >
+          PinnTag vs&nbsp;Facebook
+        </h2>
+        <p class="text-gray-600 max-w-4xl mx-auto text-center mb-10">
+          Understand why choosing PinnTag ensures hyper‑local discovery and
+          transaction features that mainstream social apps can't match. No
+          advertising, no hidden algorithms – just meaningful connections.
+        </p>
+        <!-- Comparison table -->
+    <!-- <div class="overflow-x-auto"> -->
+    <!-- Header row with logos -->
+    <!-- <div class="grid grid-cols-3 text-sm font-medium rounded-t-2xl">
+            <div class="py-4 px-3"></div>
+            <div
+              class="py-4 px-3 flex items-center justify-center border border-gray-200 bg-gray-50 rounded-tl-2xl"
+            >
+              <img
+                src="https://staging-pinntagbucket.s3.us-east-1.amazonaws.com/Frame+1707479281.png"
+                alt="PinnTag logo"
+                class="h-10"
+              />
+            </div>
+            <!-- <div class="py-4 px-3 flex items-center justify-center bg-gray-900 text-white border border-gray-800 rounded-tr-2xl"> -->
+    <!-- <div
+              class="py-4 px-3 flex items-center justify-center text-white border border-gray-200 bg-gray-50 rounded-tr-2xl"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/20/20673.png"
+                alt="Facebook logo"
+                class="h-8"
+              /> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- Feature rows -->
+    <!-- <div class="grid grid-cols-3 border-t border-gray-200">
+            <div class="py-4 px-3 font-semibold text-gray-900">
+              Ad‑Free Discovery
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center border-l border-r border-gray-200"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293A1 1 0 003.293 10.707l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center bg-gray-900 text-white border-l border-gray-800"
+            >
+              <svg
+                class="w-5 h-5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9.293l6.293-6.293a1 1 0 111.414 1.414L11.414 10l6.293 6.293a1 1 0 01-1.414 1.414L10 11.414l-6.293 6.293a1 1 0 01-1.414-1.414L8.586 10 2.293 3.707a1 1 0 011.414-1.414L10 8.586z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div> -->
+    <!-- <div class="grid grid-cols-3 border-t border-gray-200">
+            <div class="py-4 px-3 font-semibold text-gray-900">
+              Hyper‑Local Search
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center border-l border-r border-gray-200"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293A1 1 0 003.293 10.707l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center bg-gray-900 text-white border-l border-gray-800"
+            >
+              <svg
+                class="w-5 h-5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9.293l6.293-6.293a1 1 0 111.414 1.414L11.414 10l6.293 6.293a1 1 0 01-1.414 1.414L10 11.414l-6.293 6.293a1 1 0 01-1.414-1.414L8.586 10 2.293 3.707a1 1 0 011.414-1.414L10 8.586z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div> -->
+    <!-- <div class="grid grid-cols-3 border-t border-gray-200">
+            <div class="py-4 px-3 font-semibold text-gray-900">
+              Integrated Bookings &amp; Payments
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center border-l border-r border-gray-200"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293A1 1 0 003.293 10.707l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center bg-gray-900 text-white border-l border-gray-800"
+            >
+              <svg
+                class="w-5 h-5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9.293l6.293-6.293a1 1 0 111.414 1.414L11.414 10l6.293 6.293a1 1 0 01-1.414 1.414L10 11.414l-6.293 6.293a1 1 0 01-1.414-1.414L8.586 10 2.293 3.707a1 1 0 011.414-1.414L10 8.586z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div> -->
+    <!-- <div class="grid grid-cols-3 border-t border-gray-200">
+            <div class="py-4 px-3 font-semibold text-gray-900">
+              Loyalty &amp; Rewards
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center border-l border-r border-gray-200"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293A1 1 0 003.293 10.707l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center bg-gray-900 text-white border-l border-gray-800"
+            >
+              <svg
+                class="w-5 h-5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9.293l6.293-6.293a1 1 0 111.414 1.414L11.414 10l6.293 6.293a1 1 0 01-1.414 1.414L10 11.414l-6.293 6.293a1 1 0 01-1.414-1.414L8.586 10 2.293 3.707a1 1 0 011.414-1.414L10 8.586z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div> -->
+    <!-- <div
+            class="grid grid-cols-3 border-t border-b border-gray-200 rounded-b-2xl"
+          >
+            <div class="py-4 px-3 font-semibold text-gray-900">
+              Transparent Ranking
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center border-l border-r border-gray-200"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293A1 1 0 003.293 10.707l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="py-4 px-3 flex items-center justify-center bg-gray-900 text-white border-l border-gray-800"
+            >
+              <svg
+                class="w-5 h-5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 9.293l6.293-6.293a1 1 0 111.414 1.414L11.414 10l6.293 6.293a1 1 0 01-1.414 1.414L10 11.414l-6.293 6.293a1 1 0 01-1.414-1.414L8.586 10 2.293 3.707a1 1 0 011.414-1.414L10 8.586z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div> -->
+    <!-- </div>
+      </div> -->
+    <!-- </section> -->
+
+    <!-- PinnTag vs Social Media Section -->
+    <section class="py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900"
+        >
+          Local Marketing, Finally Built for Local Businesses
+        </h2>
+
+        <!-- Comparison table -->
+        <div class="overflow-x-auto">
+          <div
+            class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm"
+          >
+            <!-- Header row -->
+            <div
+              class="grid grid-cols-3 bg-gray-50 text-base font-semibold text-gray-900"
+            >
+              <div class="py-5 px-5 border-r border-gray-200">What Matters</div>
+
+              <div
+                class="py-5 px-5 flex items-center justify-center border-r border-gray-200 bg-blue-50"
+              >
+                <img
+                  src="https://staging-pinntagbucket.s3.us-east-1.amazonaws.com/Frame+1707479281.png"
+                  alt="PinnTag"
+                  class="h-9"
+                />
+              </div>
+
+              <div class="py-5 px-5 flex items-center justify-center">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/20/20673.png"
+                  alt="Facebook & Social Media"
+                  class="h-8 opacity-80"
+                />
+              </div>
+            </div>
+
+            <!-- Row template -->
+            <div class="grid grid-cols-3 border-t border-gray-200 text-[15px]">
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Customer mindset
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Actively looking nearby
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Scrolling for entertainment
+              </div>
+            </div>
+
+            <div
+              class="grid grid-cols-3 border-t border-gray-200 text-[15px] bg-gray-50"
+            >
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Noise level
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Clean, focused discovery
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Crowded feeds
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 border-t border-gray-200 text-[15px]">
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Reach predictability
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Reliable visibility
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Algorithm-controlled
+              </div>
+            </div>
+
+            <div
+              class="grid grid-cols-3 border-t border-gray-200 text-[15px] bg-gray-50"
+            >
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                How you pay
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Flat monthly subscription
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Pay per ad / boost
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 border-t border-gray-200 text-[15px]">
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Local relevance
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Hyperlocal by design
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Broad targeting
+              </div>
+            </div>
+
+            <div
+              class="grid grid-cols-3 border-t border-gray-200 text-[15px] bg-gray-50"
+            >
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Competition
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Shared discovery pool
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Competing feeds
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 border-t border-gray-200 text-[15px]">
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Time &amp; effort
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Schedule once
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">
+                Constant posting
+              </div>
+            </div>
+
+            <div
+              class="grid grid-cols-3 border-t border-gray-200 text-[15px] bg-gray-50"
+            >
+              <div
+                class="py-5 px-5 font-medium text-gray-900 border-r border-gray-200"
+              >
+                Marketing style
+              </div>
+              <div
+                class="py-5 px-5 text-center border-r border-gray-200 bg-blue-50 text-gray-800"
+              >
+                Pull + Push + Scheduled
+              </div>
+              <div class="py-5 px-5 text-center text-gray-700">Mostly push</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer copy -->
+        <div class="mt-14 text-center">
+          <p class="text-gray-600">
+            Facebook broadcasts. PinnTag captures local demand.
+          </p>
+          <p class="mt-3 font-semibold text-gray-900 text-lg">
+            Stop chasing attention. Start showing up when it matters.
+          </p>
+          <p class="mt-2 text-gray-900 font-medium">Try PinnTag free.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-gray-950">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+          Simple, Transparent Pricing
+        </h2>
+        <p class="text-gray-300 mb-12 max-w-2xl mx-auto">
+          Pricing that scales with your business. No ads, no bidding wars — just
+          predictable local discovery.
+        </p>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Plan 1: Mobile Vendors -->
+          <div
+            class="bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800 flex flex-col"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-white">
+              Mobile Vendors
+            </h3>
+            <p class="text-gray-400 mb-6">
+              Food trucks, pop-ups &amp; on-the-go businesses
+            </p>
+
+            <div class="text-4xl font-bold mb-4 text-white">
+              $22
+              <span class="text-lg font-medium text-gray-400">
+                / active unit
+              </span>
+            </div>
+
+            <ul class="text-gray-400 text-sm mb-8 space-y-2 flex-1">
+              <li>Unlimited pin drops</li>
+              <li>Live location visibility</li>
+              <li>Offers, events &amp; promotions</li>
+            </ul>
+
+            <a
+              href="#"
+              class="mt-auto inline-block px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold"
+            >
+              Get Started
+            </a>
+          </div>
+
+          <!-- Plan 2: Solo -->
+          <div
+            class="bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800 flex flex-col"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-white">Solo Standard</h3>
+            <p class="text-gray-400 mb-6">Single-location businesses</p>
+            <br />
+            <div class="text-4xl font-bold mb-4 text-white">
+              $33
+              <span class="text-lg font-medium text-gray-400"> / month </span>
+            </div>
+
+            <ul class="text-gray-400 text-sm mb-8 space-y-2 flex-1">
+              <li>1 active location</li>
+              <li>Deals, events &amp; bookings</li>
+              <li>Analytics &amp; insights</li>
+            </ul>
+
+            <a
+              href="#"
+              class="mt-auto inline-block px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold"
+            >
+              Start Solo
+            </a>
+          </div>
+
+          <!-- Plan 3: Growth (Most Popular) -->
+          <div
+            class="bg-blue-600 rounded-2xl p-8 shadow-lg flex flex-col text-white relative overflow-hidden"
+          >
+            <span
+              class="absolute top-0 right-0 px-3 py-1 text-xs uppercase tracking-wide bg-yellow-400 text-gray-900 rounded-bl-xl"
+            >
+              Most Popular
+            </span>
+
+            <h3 class="text-xl font-semibold mb-2">Growth</h3>
+            <p class="text-blue-100 mb-6">
+              Growing businesses with multiple locations
+            </p>
+
+            <div class="text-4xl font-bold mb-4">
+              $99
+              <span class="text-lg font-medium"> / month </span>
+            </div>
+
+            <ul class="text-blue-100 text-sm mb-8 space-y-2 flex-1">
+              <li>4–5 active locations</li>
+              <li>Priority discovery placement</li>
+              <li>Advanced analytics &amp; AI tools</li>
+            </ul>
+
+            <a
+              href="#"
+              class="mt-auto inline-block px-6 py-3 rounded-full bg-gray-900 hover:bg-gray-800 text-white font-semibold"
+            >
+              Choose Growth
+            </a>
+          </div>
+
+          <!-- Plan 4: Enterprise -->
+          <div
+            class="bg-gray-900 rounded-2xl p-8 shadow-lg border border-gray-800 flex flex-col"
+          >
+            <h3 class="text-xl font-semibold mb-2 text-white">
+              Enterprise / Cities
+            </h3>
+            <p class="text-gray-400 mb-6">
+              Large brands, franchises &amp; city-wide rollouts
+            </p>
+
+            <div class="text-3xl font-bold mb-4 text-white">Volume Pricing</div>
+
+            <ul class="text-gray-400 text-sm mb-8 space-y-2 flex-1">
+              <li>Unlimited locations</li>
+              <li>Custom onboarding &amp; support</li>
+              <li>Dedicated account manager</li>
+            </ul>
+
+            <a
+              href="#"
+              class="mt-auto inline-block px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold"
+            >
+              Contact Sales
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="py-24 bg-gray-900 text-center">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Join the Local Revolution?
+        </h2>
+        <p class="text-gray-300 mb-8">
+          Experience the easiest way to discover and grow local experiences.
+          Whether you’re a consumer or business owner, PinnTag empowers you to
+          connect and thrive.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#"
+            class="px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold"
+            >Get the App</a
+          >
+          <a
+            href="#"
+            class="px-8 py-4 rounded-full border border-gray-600 text-white font-semibold hover:bg-gray-800"
+            >Start Selling</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (Enhanced, same aesthetics) -->
+    <footer class="py-12" style="background-color: #1d95db">
+      <div class="max-w-7xl mx-auto px-6 text-white">
+        <!-- Top: Brand + Columns -->
+        <div class="grid gap-10 md:grid-cols-12">
+          <!-- Brand -->
+          <div class="md:col-span-4">
+            <div class="flex items-center gap-3">
+              <div
+                class="h-10 w-10 rounded-xl bg-white/15 flex items-center justify-center ring-1 ring-white/25"
+              >
+                <!-- Pin icon (simple) -->
+                <svg
+                  class="w-5 h-5 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 21s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"
+                  ></path>
+                  <circle cx="12" cy="10" r="2.5"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg leading-tight">PinnTag</h3>
+                <p class="text-sm text-white/90">
+                  Hyper-local discovery for modern businesses.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-5 space-y-2 text-sm text-white/90">
+              <p class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-white/90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16v16H4z"></path>
+                  <path d="M22 6l-10 7L2 6"></path>
+                </svg>
+                <a href="mailto:support@pinntag.com" class="hover:underline"
+                  >support@pinntag.com</a
+                >
+              </p>
+              <p class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-white/90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92V19a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.12.86.3 1.7.54 2.5a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 5 5l1.58-1.09a2 2 0 0 1 2.11-.45c.8.24 1.64.42 2.5.54A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+                <span>Business Support</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-white/90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 21s7-4.5 7-11a7 7 0 10-14 0c0 6.5 7 11 7 11z"
+                  ></path>
+                  <circle cx="12" cy="10" r="2.5"></circle>
+                </svg>
+                <span>Built for local discovery & offers</span>
+              </p>
+
+              <!-- Social icons (icons only) -->
+              <div class="pt-3 flex items-center gap-3">
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  class="h-10 w-10 rounded-xl bg-white/15 hover:bg-white/20 ring-1 ring-white/25 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <path d="M17.5 6.5h.01"></path>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  aria-label="Facebook"
+                  class="h-10 w-10 rounded-xl bg-white/15 hover:bg-white/20 ring-1 ring-white/25 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                    ></path>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  aria-label="X"
+                  class="h-10 w-10 rounded-xl bg-white/15 hover:bg-white/20 ring-1 ring-white/25 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M4 4l16 16"></path>
+                    <path d="M20 4L4 20"></path>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  aria-label="LinkedIn"
+                  class="h-10 w-10 rounded-xl bg-white/15 hover:bg-white/20 ring-1 ring-white/25 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shortcuts -->
+          <div class="md:col-span-3">
+            <h4
+              class="font-semibold text-sm tracking-wide uppercase text-white/90"
+            >
+              Shortcuts
+            </h4>
+            <ul class="mt-4 space-y-3 text-sm text-white/90">
+              <li><a href="#" class="hover:underline">Create an Offer</a></li>
+              <li><a href="#" class="hover:underline">Post an Event</a></li>
+              <li><a href="#" class="hover:underline">Manage Locations</a></li>
+              <li>
+                <a href="#" class="hover:underline">Bookings & Payments</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline">Analytics Dashboard</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Business Tools -->
+          <div class="md:col-span-3">
+            <h4
+              class="font-semibold text-sm tracking-wide uppercase text-white/90"
+            >
+              Business Tools
+            </h4>
+            <ul class="mt-4 space-y-3 text-sm text-white/90">
+              <li><a href="#" class="hover:underline">Flash Deals</a></li>
+              <li>
+                <a href="#" class="hover:underline">Rewards & Check-ins</a>
+              </li>
+              <li><a href="#" class="hover:underline">QR & Redemption</a></li>
+              <li><a href="#" class="hover:underline">AI Content Helper</a></li>
+              <li><a href="#" class="hover:underline">Verification</a></li>
+            </ul>
+          </div>
+
+          <!-- Support + Legal -->
+          <div class="md:col-span-2">
+            <h4
+              class="font-semibold text-sm tracking-wide uppercase text-white/90"
+            >
+              Support
+            </h4>
+            <ul class="mt-4 space-y-3 text-sm text-white/90">
+              <li><a href="#" class="hover:underline">Help Center</a></li>
+              <li><a href="#" class="hover:underline">Contact Support</a></li>
+              <li><a href="#" class="hover:underline">Report an Issue</a></li>
+              <li><a href="#" class="hover:underline">Status</a></li>
+            </ul>
+
+            <h4
+              class="mt-8 font-semibold text-sm tracking-wide uppercase text-white/90"
+            >
+              Legal
+            </h4>
+            <ul class="mt-4 space-y-3 text-sm text-white/90">
+              <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+              <li><a href="#" class="hover:underline">Terms of Service</a></li>
+              <li><a href="#" class="hover:underline">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+          class="mt-12 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <p class="text-sm text-white/90">
+            © 2026 PinnTag Inc. All rights reserved.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 text-sm text-white/90">
+            <a href="#" class="hover:underline">Business App</a>
+            <span class="text-white/60">•</span>
+            <a href="#" class="hover:underline">Admin Portal</a>
+            <span class="text-white/60">•</span>
+            <a href="#" class="hover:underline">Partner With Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Navigation interaction script -->
+    <script>
+      // Toggle login state
+      document.addEventListener("DOMContentLoaded", function () {
+        var loginBtn = document.getElementById("loginBtn");
+        var authButtons = document.getElementById("auth-buttons");
+        var userMenu = document.getElementById("userMenu");
+        var userBtn = document.getElementById("userBtn");
+        var userDropdown = document.getElementById("userDropdown");
+
+        if (loginBtn) {
+          loginBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            // Hide auth buttons and show user menu
+            if (authButtons) authButtons.classList.add("hidden");
+            if (userMenu) userMenu.classList.remove("hidden");
+          });
+        }
+        if (userBtn) {
+          userBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            // Toggle dropdown menu
+            if (userDropdown) {
+              userDropdown.classList.toggle("hidden");
+            }
+          });
+        }
+        // Handle logout: return to login/register state
+        if (userDropdown) {
+          var dropdownLinks = userDropdown.querySelectorAll("a");
+          dropdownLinks.forEach(function (link) {
+            if (
+              link.textContent &&
+              link.textContent.trim().toLowerCase() === "logout"
+            ) {
+              link.addEventListener("click", function (e) {
+                e.preventDefault();
+                // Hide user menu and dropdown, show auth buttons
+                if (userDropdown) userDropdown.classList.add("hidden");
+                if (userMenu) userMenu.classList.add("hidden");
+                if (authButtons) authButtons.classList.remove("hidden");
+              });
+            }
+          });
+        }
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            userDropdown &&
+            !userDropdown.contains(e.target) &&
+            userBtn &&
+            !userBtn.contains(e.target)
+          ) {
+            userDropdown.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
